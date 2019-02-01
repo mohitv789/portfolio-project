@@ -1,0 +1,97 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Portfolio Website</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+  </head>
+  <body>
+      <header>
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <a class="navbar-brand" href="{% url 'home' %}">Mohit </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav ml-auto">
+                      <a class="nav-item nav-link" href="http://twitter.com">Twitter</a>
+                      <a class="nav-item nav-link" href="{% static 'renault.pdf' %}">Resume</a>
+                      <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+
+                  </div>
+              </div>
+          </nav>
+      </header>
+
+      <main role="main">
+
+          <section class="jumbotron text-center">
+              <div class="container">
+                  <h1 class="jumbotron-heading">HI I AM MOHIT.</h1>
+                  <p class="lead text-muted">Hey , my name is Mohit Verma and I love to make Django Website. It is the thrill of handling requests.</p>
+                  <p>
+                      <a href="mailto:mohitv15@gmail.com" class="btn btn-primary my-2">Email Me!</a>
+
+                  </p>
+                  <img src="{% static 'image.jpg' %}" alt="My Image" height = 300 , width = 300>
+              </div>
+          </section>
+
+          <div class="album py-5 bg-light">
+              <div class="container">
+
+                  <div class="row">
+                    {% for job in jobs.all %}
+
+                      <div class="col-md-4">
+                          <div class="card mb-4 shadow-sm">
+                              <img class="bd-placeholder-img card-img-top" src = "{{ job.image.url }}"/>
+                              <div class="card-body">
+                                  <p class="card-text">{{ job.summary }}</p>
+
+                              </div>
+                          </div>
+                      </div>
+                    {% endfor %}
+
+                  </div>
+              </div>
+
+          </main>
+
+    <footer class="text-muted">
+      <div class="container text-center">
+        <p>CopyRight Mohit Verma {% now "Y" %}</p>
+
+
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script></body>
+    </html>
